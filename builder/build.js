@@ -16,8 +16,11 @@ var buildSpec = {
 };
 
 var buildDir = "build/";
-
 var gitDir = buildDir + "repository/", srcDir = "../src/js/"; //gitDir + "src/js/";
+var buildVersion = "wd";
+zipDir = buildDir + "rangy-" + buildVersion + "/";
+uncompressedBuildDir = zipDir + "uncompressed/";
+
 var zipDir;
 var uncompressedBuildDir;
 var coreFilename = "rangy-core.js";
@@ -31,8 +34,6 @@ var modules = [
 ];
 
 var allScripts = [coreFilename].concat(modules);
-
-var buildVersion;
 
 function concat(fileList, destPath) {
     var out = fileList.map(function(filePath) {
@@ -74,7 +75,9 @@ function deleteBuildDir() {
 
 function createBuildDir() {
     fs.mkdirSync(buildDir);
-    fs.mkdirSync(gitDir);
+    fs.mkdirSync(zipDir);
+    fs.mkdirSync(uncompressedBuildDir);
+    //fs.mkdirSync(gitDir);
     console.log("Created build directory " + path.resolve(buildDir));
     callback();
 }
