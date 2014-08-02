@@ -17,7 +17,7 @@ var buildSpec = {
 
 var buildDir = "build/";
 
-var gitDir = buildDir + "repository/", srcDir = gitDir + "src/js/";
+var gitDir = buildDir + "repository/", srcDir = "../src/js/"; //gitDir + "src/js/";
 var zipDir;
 var uncompressedBuildDir;
 var coreFilename = "rangy-core.js";
@@ -346,11 +346,11 @@ var tarGz = createArchiver("tar.gz", function() {
 var actions = [
     deleteBuildDir,
     createBuildDir,
-    cloneGitRepository,
-    getVersion,
+    //cloneGitRepository,
+    //getVersion,
     assembleCoreScript,
     copyModuleScripts,
-    clean,
+    //clean,
     removeLoggingFromScripts,
     substituteBuildVars,
     lint,
