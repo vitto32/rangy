@@ -311,4 +311,4 @@
         api.nodeToInfoString = nodeToInfoString;
     });
     
-});
+}, window);

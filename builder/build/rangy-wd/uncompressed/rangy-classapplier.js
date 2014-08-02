@@ -1009,4 +1009,4 @@
         api.createCssClassApplier = api.createClassApplier = createClassApplier;
     });
     
-});
+}, window);
