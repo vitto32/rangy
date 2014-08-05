@@ -7,7 +7,7 @@
  * Copyright 2014, Tim Down
  * Licensed under the MIT license.
  * Version: wd
- * Build date: 2 August 2014
+ * Build date: 5 August 2014
  */
 (function(factory, global) {
     if (typeof define == "function" && define.amd) {
@@ -85,6 +85,10 @@
         CharacterRange.prototype = {
             intersects: function(charRange) {
                 return this.start < charRange.end && this.end > charRange.start;
+            },
+
+            contiguous: function(charRange) {
+                return this.start == charRange.end || this.end == charRange.start;
             },
 
             union: function(charRange) {
@@ -374,7 +378,7 @@
                             //  2. partially or entirely ereased (className = false)
                             //  3. partially or entirely replaced (isSameClassApplier == false && exclusive == true)
 
-                            if (highlightCharRange.intersects(charRange) && (isSameClassApplier || splitHighlight)) {
+                            if ((highlightCharRange.intersects(charRange) || highlightCharRange.contiguous(charRange)) && (isSameClassApplier || splitHighlight)) {
 
                                 // Remove existing Highlights, keep unselected parts
                                 if (splitHighlight) {

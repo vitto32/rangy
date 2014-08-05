@@ -27,7 +27,7 @@
  * Copyright 2014, Tim Down
  * Licensed under the MIT license.
  * Version: wd
- * Build date: 2 August 2014
+ * Build date: 5 August 2014
  */
 
 /**
